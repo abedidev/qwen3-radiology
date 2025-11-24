@@ -154,6 +154,5 @@ Two of the fine-tuned models trained with Unsloth are available at:
 
 ## 10. License
 
-This project is released under the [MIT License](LICENSE).  
-You are free to use, modify, and distribute this code in accordance with the license terms.
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
 
