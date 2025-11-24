@@ -36,8 +36,7 @@ A GPU runtime is recommended for fine-tuning and evaluation
 (for example T4, V100, or A100 available in Colab).
 
 ### Python / Notebook Dependencies
-All required packages are installed directly within the notebooks, and each notebook specifies its own dependencies.  
-A separate `requirements.txt` file is therefore not included.
+All required packages are installed directly within the notebooks, and each notebook specifies its own dependencies. A separate `requirements.txt` file is therefore not included.
 
 ## 2. Dataset
 
