@@ -80,7 +80,7 @@ Includes:
 
 ## 4. Training
 
-Fine-tuning is performed through:
+Fine-tuning is performed through Unsloth:
 
 ```
 02-fine-tuning-lora-dora.ipynb
@@ -93,7 +93,10 @@ Includes:
 - LoRA/DoRA PEFT configuration  
 - Hyperparameters  
 - Logging  
-- Saving checkpoints  
+- Saving checkpoints
+
+![Unsloth-Qwen3](figures/unsloth-qwen3.avif)
+
 
 ## 5. Inference and Zero-Shot Evaluation
 
