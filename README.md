@@ -1,7 +1,7 @@
 # Clinical Multi-Label Disease Extraction from Radiology Findings  
 Using Qwen3-4B and Qwen3-8B with Parameter-Efficient Fine-Tuning
 
-This repository provides a complete implementation and demonstration of using Qwen3 large language models for multi-label disease classification from free-text abdominal radiology findings. It includes all components for zero-shot evaluation, fine-tuning with LoRA and DoRA, preprocessing, prompt construction, inference, comprehensive performance analysis, and uploading the resulting models to Hugging Face.
+This repository provides an implementation and demonstration of using Qwen3 large language models for multi-label disease classification from free-text radiology findings. It covers the full workflow, beginning with preprocessing and prompt construction, followed by zero-shot evaluation and fine-tuning with LoRA and DoRA, and concluding with inference, comprehensive performance analysis, and uploading the resulting models to Hugging Face.
 
 ## Repository Structure
 
