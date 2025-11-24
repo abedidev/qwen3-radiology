@@ -87,7 +87,9 @@ Fine-tuning is performed through Unsloth:
 Includes:
 - Loading pretrained LLMs  
 - LoRA and DoRA PEFT configuration  
-- Hyperparameters  
+- Applying curriculum learning strategies  
+- Applying oversampling strategies for class imbalance  
+- Hyperparameter configuration  
 - Logging  
 - Saving checkpoints  
 
