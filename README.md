@@ -1,6 +1,6 @@
-# Clinical Multi-Label Disease Extraction from Abdominal Radiology Findings
+# Clinical Multi-Label Disease Extraction from Radiology Findings
 
-This repository contains the official implementation of our work on extracting multi-label disease findings from abdominal radiology reports using large language models.  
+This repository contains the implementation of a work on extracting multi-label disease findings from radiology reports using large language models.  
 The project evaluates both zero-shot pretrained LLMs and fine-tuned LLMs using supervised clinical data.
 
 The goal is to provide full transparency in preprocessing, modeling methodology, evaluation, and reproducibility.
@@ -15,7 +15,8 @@ root/
 │   ├── 02-fine-tuning-lora-dora.ipynb
 │   ├── 03-fine-tuning-lora-dora-curriculum-learning.ipynb
 │   ├── 04-fine-tuning-lora-dora-oversampling.ipynb
-│   ├── 05-evaluation-fine-tuned.ipynb
+│   ├── 05-evaluation-fine-tuned-model.ipynb
+│   ├── 06-hugging-face-upload.ipynb
 │
 ├── inference-results.xlsx
 │
@@ -42,7 +43,7 @@ No standalone requirements.txt file is provided.
 
 ## 2. Dataset
 
-This project uses a private dataset of abdominal radiology findings with expert-annotated multi-label disease outputs.
+This project uses a private dataset of abdominal radiology findings with multi-label disease outputs.
 
 ### Dataset Files
 - train.csv – training set  
@@ -61,28 +62,14 @@ All preprocessing and preparation steps are included in the notebooks.
 
 ## 3. Preprocessing
 
-Preprocessing steps are implemented across all notebooks used for training and evaluation:
-
+Preprocessing, which includes extracting the textual data from the CSV files, integrating the text into prompts, and preparing the data in a format compatible with Hugging Face transformer models, is implemented across all notebooks used for training and evaluation.
 ```
 01-evaluation-zero-shot.ipynb
 02-fine-tuning-lora-dora.ipynb
 03-fine-tuning-lora-dora-curriculum-learning.ipynb
 04-fine-tuning-lora-dora-oversampling.ipynb
-05-evaluation-fine-tuned.ipynb
-```
-
-Includes:
-- Label normalization  
-- Vocabulary construction  
-- Text normalization  
-- Dataset splitting  
-- Tokenization setup  
-- Statistical analysis (disease frequency, number of diseases per sample, input text length)
-
-Generated statistics are stored in:
-
-```
-train-statistics/
+05-evaluation-fine-tuned-model.ipynb
+06-hugging-face-upload.ipynb
 ```
 
 ## 4. Training
@@ -102,26 +89,21 @@ Includes:
 - Logging  
 - Saving checkpoints  
 
-The system prompt shown in Figure 4 is the default during fine-tuning.
-
 ## 5. Inference and Zero-Shot Evaluation
 
 ### Zero-Shot Evaluation
 ```
 01-evaluation-zero-shot.ipynb
 ```
-Uses both prompts shown in Figure 4 and Figure 5.
-
 ### Fine-Tuned Model Evaluation
 ```
-05-evaluation-fine-tuned.ipynb
+05-evaluation-fine-tuned-model.ipynb
 ```
 
-Includes:
-- Running predictions  
-- Postprocessing  
-- Computing metrics  
-- Exporting results  
+### Hugging Face Model Upload
+```
+06-hugging-face-upload.ipynb
+```
 
 ## 6. Evaluation Metrics
 
@@ -139,35 +121,31 @@ Includes:
 Final results appear in:
 
 ```
-05-evaluation-fine-tuned.ipynb
 01-evaluation-zero-shot.ipynb
+05-evaluation-fine-tuned-model.ipynb
 ```
 
-Example table:
+Some Results:
 
-| Model | Micro-F1 | Macro-F1 | Exact Match | Notes |
+| Model | Jaccard Score | Exact Match | Micro F1  | Macro F1 |
 |-------|----------|----------|-------------|--------|
-| Zero-shot (Prompt A) | — | — | — | Figure 4 |
-| Zero-shot (Prompt B) | — | — | — | Figure 5 |
-| Fine-tuned | — | — | — | Default prompt |
+| Qwen3-4b Zero-shot | — | — | — | Figure 4 |
+| Qwen3-8b Zero-shot | — | — | — | Figure 5 |
+| Qwen3-8b LoRa | — | — | — | Default prompt |
+| Qwen3-8b DoRa | — | — | — | Default prompt |
+| Qwen3-8b LoRa | — | — | — | Default prompt |
+| Qwen3-8b DoRa | — | — | — | Default prompt |
 
 ## 8. Reproducibility Statement
 
 This repository follows MICCAI reproducibility guidelines.  
 All processing, training, prompting, and evaluation steps are fully documented in notebooks.
 
-## 9. Model Checkpoints
+## 9. Model Checkpoints (Hugging Face)
 
-Place model files in:
+Fine-tuned models trained with Unsloth are available at:
 
 ```
-models/
+[abedidev/qwen3-4b-unsloth-lora/](https://huggingface.co/abedidev/qwen3-4b-unsloth-lora)
 ```
 
-## 10. Acknowledgements
-
-We acknowledge reproducibility guidelines from the MICCAI community.
-
-## 11. License
-
-Insert your chosen license here.
