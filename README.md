@@ -1,9 +1,7 @@
 # Clinical Multi-Label Disease Extraction from Radiology Findings
+Using Qwen3-4B and Qwen3-8B with Parameter-Efficient Fine-Tuning
 
-This repository contains the implementation of a work on extracting multi-label disease findings from radiology reports using large language models.  
-The project evaluates both zero-shot pretrained LLMs and fine-tuned LLMs using supervised clinical data.
-
-The goal is to provide full transparency in preprocessing, modeling methodology, evaluation, and reproducibility.
+This repository provides a complete implementation and demonstration of using Qwen3 large language models for multi-label disease classification from free-text abdominal radiology findings. It includes all components for zero-shot evaluation, fine-tuning with LoRA and DoRA, preprocessing, prompt construction, inference, comprehensive performance analysis, and uploading the resulting models to Hugging Face.
 
 ## Repository Structure
 
@@ -38,12 +36,11 @@ root/
 - NVIDIA GPU recommended (RTX 3080 Ti, A100, T4)
 
 ### Python / Notebook Dependencies
-All required packages for running this project in Google Colab are included and documented inside the notebooks.  
-No standalone requirements.txt file is provided.
+All required packages for running this project in Google Colab are specified and installed directly within the notebooks, so a separate requirements.txt file is not included.
 
 ## 2. Dataset
 
-This project uses a private dataset of abdominal radiology findings with multi-label disease outputs.
+This project uses a dataset of abdominal radiology findings with multi-label disease outputs that cannot be publicly released.
 
 ### Dataset Files
 - train.csv – training set  
@@ -138,12 +135,12 @@ Some Results:
 
 | Model | Jaccard Score | Exact Match | Micro F1  | Macro F1 |
 |-------|----------|----------|-------------|--------|
-| Qwen3-4b Zero-shot | — | — | — | Figure 4 |
-| Qwen3-8b Zero-shot | — | — | — | Figure 5 |
-| Qwen3-8b LoRa | — | — | — | Default prompt |
-| Qwen3-8b DoRa | — | — | — | Default prompt |
-| Qwen3-8b LoRa | — | — | — | Default prompt |
-| Qwen3-8b DoRa | — | — | — | Default prompt |
+| Qwen3-4b Zero-shot | 0.2661 | 0.0518 | 0.3590 | 0.0971 |
+| Qwen3-8b Zero-shot | 0.2460 | 0.0466 | 0.3456 | 0.1005 |
+| Qwen3-4b LoRa | 0.5989 | 0.3342 | 0.6817 | 0.2648 |
+| Qwen3-8b LoRa | 0.5973 | 0.3238 | 0.6736 | 0.2731 |
+| Qwen3-4b DoRa | 0.6113 | 0.3472 | 0.6903 | 0.2970 |
+| Qwen3-8b DoRa | 0.6171 | 0.3549 | 0.6934 | 0.2754 |
 
 ## 8. Reproducibility Statement
 
