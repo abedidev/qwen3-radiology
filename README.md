@@ -92,8 +92,6 @@ Includes:
 - Logging  
 - Saving checkpoints
 
-![Unsloth-Qwen3](figures/unsloth-qwen3.avif)
-
 
 ## 5. Inference and Zero-Shot Evaluation
 
