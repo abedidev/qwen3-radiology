@@ -78,6 +78,9 @@ Includes:
 
 Fine-tuning is performed through Unsloth:
 
+![Unsloth Qwen-3 performance chart](figures/unsloth-qwen3.avif)
+
+
 ```
 02-fine-tuning-lora-dora.ipynb
 03-fine-tuning-lora-dora-curriculum-learning.ipynb
