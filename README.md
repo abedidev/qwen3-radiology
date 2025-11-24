@@ -143,11 +143,17 @@ Final results appear in:
 
 ## 8. Reproducibility Statement
 
-This repository follows MICCAI reproducibility guidelines.  
 All processing, training, prompting, and evaluation steps are fully documented in notebooks.
 
 ## 9. Model Checkpoints (Hugging Face)
 
-Fine-tuned models trained with Unsloth are available at:
+Two of the fine-tuned models trained with Unsloth are available at:
 
 [abedidev/qwen3-4b-unsloth-lora](https://huggingface.co/abedidev/qwen3-4b-unsloth-lora)
+[abedidev/qwen3-8b-unsloth-dora](https://huggingface.co/abedidev/qwen3-8b-unsloth-dora)
+
+## 10. License
+
+This project is released under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this code in accordance with the license terms.
+
