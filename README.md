@@ -1,9 +1,8 @@
 # Clinical Multi-Label Disease Extraction from Abdominal Radiology Findings
 
-This repository contains the official implementation of our work on extracting multi-label disease findings from abdominal radiology reports using large language models.
+This repository contains the official implementation of our work on extracting multi-label disease findings from abdominal radiology reports using large language models.  
 The project evaluates both zero-shot pretrained LLMs and fine-tuned LLMs using supervised clinical data.
 
-This codebase follows the MICCAI Reproducibility Checklist and the Machine Learning Code Completeness Checklist for medical imaging and clinical AI research.
 The goal is to provide full transparency in preprocessing, modeling methodology, evaluation, and reproducibility.
 
 ## Repository Structure
@@ -17,6 +16,7 @@ root/
 │   ├── 03-fine-tuning-lora-dora-curriculum-learning.ipynb
 │   ├── 04-fine-tuning-lora-dora-oversampling.ipynb
 │   ├── 05-evaluation-fine-tuned.ipynb
+│
 ├── inference-results.xlsx
 │
 ├── train-statistics/
@@ -30,52 +30,56 @@ root/
 ## 1. Environment and Requirements
 
 ### Operating System
-- Ubuntu 22.04 or 24.04
+- Ubuntu 22.04 or 24.04  
 - Python 3.10 or newer
 
 ### Hardware
-- NVIDIA GPU recommended (e.g., RTX 3080 Ti, A100, or T4)
+- NVIDIA GPU recommended (RTX 3080 Ti, A100, T4)
 
-### Python Dependencies
-Dependencies are listed in:
-
-```
-requirements.txt
-```
-
-Environment setup instructions are provided directly inside the notebooks.
+### Python / Notebook Dependencies
+All required packages for running this project in Google Colab are included and documented inside the notebooks.  
+No standalone requirements.txt file is provided.
 
 ## 2. Dataset
 
-This project uses a dataset of abdominal radiology findings paired with gold-standard multi-label disease annotations.
+This project uses a private dataset of abdominal radiology findings with expert-annotated multi-label disease outputs.
 
-### Dataset fields
-- case_id
-- input_finding (clinical text)
-- output_disease (comma-separated disease labels)
+### Dataset Files
+- train.csv – training set  
+- test.csv – test set  
 
-### Private data note
-If the dataset cannot be shared due to PHI restrictions:
-- Users can run the entire pipeline by providing data in the same column structure.
-- All necessary data preparation and preprocessing logic is included in the notebooks.
+Both files contain the following fields:
+
+- case_id  
+- input_finding  
+- output_disease  
+
+### Private Data Note
+As the dataset contains protected clinical data, it cannot be shared.  
+Users can reproduce the pipeline by supplying their own dataset using the same structure.  
+All preprocessing and preparation steps are included in the notebooks.
 
 ## 3. Preprocessing
 
-Implemented in:
+Preprocessing steps are implemented across all notebooks used for training and evaluation:
 
 ```
-02_preprocessing.ipynb
+01-evaluation-zero-shot.ipynb
+02-fine-tuning-lora-dora.ipynb
+03-fine-tuning-lora-dora-curriculum-learning.ipynb
+04-fine-tuning-lora-dora-oversampling.ipynb
+05-evaluation-fine-tuned.ipynb
 ```
 
 Includes:
-- Label normalization
-- Vocabulary construction
-- Text normalization
-- Dataset splitting
-- Tokenization preparation
-- Statistical analysis of disease frequency, number of diseases per sample, and input text length
+- Label normalization  
+- Vocabulary construction  
+- Text normalization  
+- Dataset splitting  
+- Tokenization setup  
+- Statistical analysis (disease frequency, number of diseases per sample, input text length)
 
-Generated statistics are saved in:
+Generated statistics are stored in:
 
 ```
 train-statistics/
@@ -83,96 +87,87 @@ train-statistics/
 
 ## 4. Training
 
-All fine-tuning is performed through:
+Fine-tuning is performed through:
 
 ```
-03_training.ipynb
+02-fine-tuning-lora-dora.ipynb
+03-fine-tuning-lora-dora-curriculum-learning.ipynb
+04-fine-tuning-lora-dora-oversampling.ipynb
 ```
 
 Includes:
-- Loading pretrained LLMs
-- Configuring PEFT methods (LoRA, DoRA, etc.)
-- Hyperparameters
-- Logging
-- Saving fine-tuned checkpoints
+- Loading pretrained LLMs  
+- LoRA/DoRA PEFT configuration  
+- Hyperparameters  
+- Logging  
+- Saving checkpoints  
 
-The system prompt shown in Figure 4 is used as the default prompt during fine-tuning.
+The system prompt shown in Figure 4 is the default during fine-tuning.
 
 ## 5. Inference and Zero-Shot Evaluation
 
-### Fine-tuned Model Evaluation
+### Zero-Shot Evaluation
 ```
-04_evaluation_finetuned_models.ipynb
+01-evaluation-zero-shot.ipynb
+```
+Uses both prompts shown in Figure 4 and Figure 5.
+
+### Fine-Tuned Model Evaluation
+```
+05-evaluation-fine-tuned.ipynb
 ```
 
 Includes:
-- Running predictions
-- Postprocessing
-- Computing metrics
-- Saving results
-
-### Zero-shot Pretrained Evaluation
-```
-05_evaluation_zero_shot.ipynb
-```
-
-Uses both system prompts shown in Figure 4 and Figure 5.
+- Running predictions  
+- Postprocessing  
+- Computing metrics  
+- Exporting results  
 
 ## 6. Evaluation Metrics
 
-Metrics include:
-- Micro-F1
-- Macro-F1
-- Precision
-- Recall
-- Exact match
-- Jaccard
-- Per-disease metrics
-- Error analysis by disease count, label co-occurrence, false positives, and false negatives
+- Micro-F1  
+- Macro-F1  
+- Precision  
+- Recall  
+- Exact match  
+- Jaccard  
+- Per-disease metrics  
+- Error analysis (disease count, co-occurrence, FP/FN)
 
 ## 7. Results
 
-Final metrics appear in:
+Final results appear in:
 
 ```
-04_evaluation_finetuned_models.ipynb
-05_evaluation_zero_shot.ipynb
+05-evaluation-fine-tuned.ipynb
+01-evaluation-zero-shot.ipynb
 ```
 
 Example table:
 
 | Model | Micro-F1 | Macro-F1 | Exact Match | Notes |
-|-------|----------|-----------|-------------|--------|
-| Zero-shot (Prompt A) | — | — | — | Figure 4 prompt |
-| Zero-shot (Prompt B) | — | — | — | Figure 5 prompt |
-| Fine-tuned LLM | — | — | — | Default: Figure 4 prompt |
+|-------|----------|----------|-------------|--------|
+| Zero-shot (Prompt A) | — | — | — | Figure 4 |
+| Zero-shot (Prompt B) | — | — | — | Figure 5 |
+| Fine-tuned | — | — | — | Default prompt |
 
 ## 8. Reproducibility Statement
 
-This repository adheres to MICCAI reproducibility guidelines, providing full details for:
-- Preprocessing
-- Dataset statistics
-- Training configuration
-- Evaluation methodology
-- Prompts used
-- Notebook-based workflow
-
-Reproducibility for private datasets is supported through complete transparency in each step, user-supplied datasets, and optional checkpoint sharing.
+This repository follows MICCAI reproducibility guidelines.  
+All processing, training, prompting, and evaluation steps are fully documented in notebooks.
 
 ## 9. Model Checkpoints
 
-Model weights, if provided, should be placed in:
+Place model files in:
 
 ```
 models/
 ```
 
-Include tokenizer files, adapter weights, and configuration metadata.
-
 ## 10. Acknowledgements
 
-We acknowledge reproducibility frameworks from the MICCAI community and thank collaborators for their support.
+We acknowledge reproducibility guidelines from the MICCAI community.
 
 ## 11. License
 
-Include your preferred license here.
+Insert your chosen license here.
