@@ -62,7 +62,7 @@ All preprocessing and preparation steps are included in the notebooks.
 
 ## 3. Preprocessing
 
-Preprocessing, which includes extracting the textual data from the CSV files, integrating the text into prompts, and preparing the data in a format compatible with Hugging Face transformer models, is implemented across all notebooks used for training and evaluation.
+Implemented in:
 ```
 01-evaluation-zero-shot.ipynb
 02-fine-tuning-lora-dora.ipynb
@@ -71,6 +71,12 @@ Preprocessing, which includes extracting the textual data from the CSV files, in
 05-evaluation-fine-tuned-model.ipynb
 06-hugging-face-upload.ipynb
 ```
+
+Includes:
+- Extracting the textual data from the CSV files  
+- Integrating the text into prompts
+- preparing the data in a format compatible with Hugging Face transformer models  
+
 
 ## 4. Training
 
