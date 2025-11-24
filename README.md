@@ -12,12 +12,12 @@ The goal is to provide full transparency in preprocessing, modeling methodology,
 root/
 │
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_preprocessing.ipynb
-│   ├── 03_training.ipynb
-│   ├── 04_evaluation_finetuned_models.ipynb
-│   ├── 05_evaluation_zero_shot.ipynb
-│   └── 06_error_analysis.ipynb
+│   ├── 01-evaluation-zero-shot.ipynb
+│   ├── 02-fine-tuning-lora-dora.ipynb
+│   ├── 03-fine-tuning-lora-dora-curriculum-learning.ipynb
+│   ├── 04-fine-tuning-lora-dora-oversampling.ipynb
+│   ├── 05-evaluation-fine-tuned.ipynb
+├── inference-results.xlsx
 │
 ├── train-statistics/
 ├── figures/
