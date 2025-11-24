@@ -1,4 +1,4 @@
-# Clinical Multi-Label Disease Extraction from Radiology Findings
+# Clinical Multi-Label Disease Extraction from Radiology Findings  
 Using Qwen3-4B and Qwen3-8B with Parameter-Efficient Fine-Tuning
 
 This repository provides a complete implementation and demonstration of using Qwen3 large language models for multi-label disease classification from free-text abdominal radiology findings. It includes all components for zero-shot evaluation, fine-tuning with LoRA and DoRA, preprocessing, prompt construction, inference, comprehensive performance analysis, and uploading the resulting models to Hugging Face.
@@ -28,29 +28,29 @@ root/
 
 ## 1. Environment and Requirements
 
-### Operating System
-- Ubuntu 22.04 or 24.04  
-- Python 3.10 or newer
+### Runtime Environment
+This project is designed to run entirely in **Google Colab**, using the default Python and CUDA versions provided by the Colab runtime.
 
 ### Hardware
-- NVIDIA GPU recommended (RTX 3080 Ti, A100, T4)
+A GPU runtime is recommended for fine-tuning and evaluation  
+(for example T4, V100, or A100 available in Colab).
 
 ### Python / Notebook Dependencies
-All required packages for running this project in Google Colab are specified and installed directly within the notebooks, so a separate requirements.txt file is not included.
+All required packages are installed directly within the notebooks, and each notebook specifies its own dependencies.  
+A separate `requirements.txt` file is therefore not included.
 
 ## 2. Dataset
 
 This project uses a dataset of abdominal radiology findings with multi-label disease outputs that cannot be publicly released.
 
 ### Dataset Files
-- train.csv – training set  
-- test.csv – test set  
+- `train.csv` – training set  
+- `test.csv` – test set  
 
 Both files contain the following fields:
-
-- case_id  
-- input_finding  
-- output_disease  
+- `case_id`  
+- `input_finding`  
+- `output_disease`
 
 ### Private Data Note
 As the dataset contains protected clinical data, it cannot be shared.  
@@ -60,6 +60,7 @@ All preprocessing and preparation steps are included in the notebooks.
 ## 3. Preprocessing
 
 Implemented in:
+
 ```
 01-evaluation-zero-shot.ipynb
 02-fine-tuning-lora-dora.ipynb
@@ -71,9 +72,8 @@ Implemented in:
 
 Includes:
 - Extracting the textual data from the CSV files  
-- Integrating the text into prompts
-- preparing the data in a format compatible with Hugging Face transformer models  
-
+- Integrating the text into prompts  
+- Preparing the data in a format compatible with Hugging Face transformer models  
 
 ## 4. Training
 
@@ -87,11 +87,10 @@ Fine-tuning is performed through Unsloth:
 
 Includes:
 - Loading pretrained LLMs  
-- LoRA/DoRA PEFT configuration  
+- LoRA and DoRA PEFT configuration  
 - Hyperparameters  
 - Logging  
-- Saving checkpoints
-
+- Saving checkpoints  
 
 ## 5. Inference and Zero-Shot Evaluation
 
@@ -99,6 +98,7 @@ Includes:
 ```
 01-evaluation-zero-shot.ipynb
 ```
+
 ### Fine-Tuned Model Evaluation
 ```
 05-evaluation-fine-tuned-model.ipynb
@@ -129,16 +129,16 @@ Final results appear in:
 05-evaluation-fine-tuned-model.ipynb
 ```
 
-Some Results:
+### Some Results
 
-| Model | Jaccard Score | Exact Match | Micro F1  | Macro F1 |
-|-------|----------|----------|-------------|--------|
-| Qwen3-4b Zero-shot | 0.2661 | 0.0518 | 0.3590 | 0.0971 |
-| Qwen3-8b Zero-shot | 0.2460 | 0.0466 | 0.3456 | 0.1005 |
-| Qwen3-4b LoRa | 0.5989 | 0.3342 | 0.6817 | 0.2648 |
-| Qwen3-8b LoRa | 0.5973 | 0.3238 | 0.6736 | 0.2731 |
-| Qwen3-4b DoRa | 0.6113 | 0.3472 | 0.6903 | 0.2970 |
-| Qwen3-8b DoRa | 0.6171 | 0.3549 | 0.6934 | 0.2754 |
+| Model | Jaccard Score | Exact Match | Micro F1 | Macro F1 |
+|-------|---------------|-------------|----------|----------|
+| Qwen3-4B Zero-shot | 0.2661 | 0.0518 | 0.3590 | 0.0971 |
+| Qwen3-8B Zero-shot | 0.2460 | 0.0466 | 0.3456 | 0.1005 |
+| Qwen3-4B LoRa | 0.5989 | 0.3342 | 0.6817 | 0.2648 |
+| Qwen3-8B LoRa | 0.5973 | 0.3238 | 0.6736 | 0.2731 |
+| Qwen3-4B DoRa | 0.6113 | 0.3472 | 0.6903 | 0.2970 |
+| Qwen3-8B DoRa | 0.6171 | 0.3549 | 0.6934 | 0.2754 |
 
 ## 8. Reproducibility Statement
 
@@ -149,7 +149,4 @@ All processing, training, prompting, and evaluation steps are fully documented i
 
 Fine-tuned models trained with Unsloth are available at:
 
-```
 [abedidev/qwen3-4b-unsloth-lora](https://huggingface.co/abedidev/qwen3-4b-unsloth-lora)
-```
-
