@@ -152,9 +152,11 @@ All processing, training, prompting, and evaluation steps are fully documented i
 
 Two of the fine-tuned models trained with Unsloth are available at:
 
+```
 [abedidev/qwen3-4b-unsloth-lora](https://huggingface.co/abedidev/qwen3-4b-unsloth-lora)
 
 [abedidev/qwen3-8b-unsloth-dora](https://huggingface.co/abedidev/qwen3-8b-unsloth-dora)
+```
 
 ## 10. License
 
