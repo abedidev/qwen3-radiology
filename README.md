@@ -122,12 +122,21 @@ Includes:
 
 ## 7. Results
 
-Final results appear in:
+Final results were generated using:
 
 ```
 01-evaluation-zero-shot.ipynb
 05-evaluation-fine-tuned-model.ipynb
 ```
+
+and appear in:
+
+```
+inference-results-raw.xlsx
+inference-results-metrics.xlsx
+```
+
+including the raw inferences made by the models along with ground-truth values, as well as the values of different evaluation metrics.
 
 ### Some Results
 
