@@ -130,14 +130,15 @@ Final results appear in:
 
 ### Some Results
 
-| Model | Jaccard Score | Exact Match | Micro F1 | Macro F1 |
-|-------|---------------|-------------|----------|----------|
-| Qwen3-4B Zero-shot | 0.2661 | 0.0518 | 0.3590 | 0.0971 |
-| Qwen3-8B Zero-shot | 0.2460 | 0.0466 | 0.3456 | 0.1005 |
-| Qwen3-4B LoRa | 0.5989 | 0.3342 | 0.6817 | 0.2648 |
-| Qwen3-8B LoRa | 0.5973 | 0.3238 | 0.6736 | 0.2731 |
-| Qwen3-4B DoRa | 0.6113 | 0.3472 | 0.6903 | 0.2970 |
-| Qwen3-8B DoRa | 0.6171 | 0.3549 | 0.6934 | 0.2754 |
+| Model      | Setting                               | Jaccard Score | Exact Match | Micro F1 (Overall) | Macro F1 (Overall) |
+|------------|----------------------------------------|----------------|--------------|----------------------|----------------------|
+| Qwen3-4B   | Zero-shot                              | 0.2174         | 0.044        | 0.2956               | 0.0967               |
+| Qwen3-8B   | Zero-shot                              | 0.2157         | 0.044        | 0.292                | 0.0831               |
+| Qwen3-4B   | Fine-tuned LoRA                        | 0.6034         | 0.3523       | 0.6804               | 0.263                |
+| Qwen3-4B   | Fine-tuned DoRA                        | 0.6122         | 0.3601       | 0.6821               | 0.283                |
+| Qwen3-8B   | Fine-tuned LoRA                        | 0.5988         | 0.3394       | 0.6767               | 0.2711               |
+| Qwen3-8B   | Fine-tuned DoRA                        | 0.6209         | 0.3653       | 0.6985               | 0.3104               |
+
 
 ## 8. Reproducibility Statement
 
