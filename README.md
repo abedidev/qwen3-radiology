@@ -1,4 +1,4 @@
-# Clinical Multi-Label Disease Extraction from Radiology Findings  
+# Fine-tuning Large Language Models for Disease Diagnosis 
 Using Qwen3 Large Language Model with Parameter-Efficient Fine-Tuning
 
 This repository provides an implementation and demonstration of using Qwen3 large language models for multi-label disease classification from free-text radiology findings. It covers the full workflow, beginning with preprocessing and prompt construction, followed by zero-shot evaluation and fine-tuning with LoRA and DoRA, and concluding with inference, comprehensive performance analysis, and uploading the resulting models to Hugging Face.
