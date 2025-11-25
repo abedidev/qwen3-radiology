@@ -18,11 +18,6 @@ root/
 │
 ├── inference-results.xlsx
 │
-├── train-statistics/
-├── figures/
-├── models/
-├── data/
-│
 └── README.md
 ```
 
