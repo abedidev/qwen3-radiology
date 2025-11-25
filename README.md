@@ -16,7 +16,8 @@ root/
 │   ├── 05-evaluation-fine-tuned-model.ipynb
 │   ├── 06-hugging-face-upload.ipynb
 │
-├── inference-results.xlsx
+├── inference-results-raw.xlsx
+├── inference-results-metrics.xlsx
 │
 └── README.md
 ```
